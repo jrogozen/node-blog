@@ -1,5 +1,13 @@
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('Post', {
-  title : {type : String, default: ''}
-});
+var Schema = mongoose.Schema;
+
+var postSchema = new Schema({
+  title: String,
+  author: String,
+  content: String,
+  date: { type: Date, default: Date.now },
+  hidden: Boolean
+})
+
+module.exports = mongoose.model('Post', postSchema);

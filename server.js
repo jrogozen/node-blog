@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var cors = require('cors');
 
 var db = require('./config/db');
 
@@ -10,6 +11,8 @@ var port = process.env.PORT || 8000;
 var mongoose = require('mongoose');
 
 mongoose.connect(db.url);
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
