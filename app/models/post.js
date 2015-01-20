@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
@@ -7,7 +6,8 @@ var postSchema = new Schema({
   author: String,
   content: String,
   date: { type: Date, default: Date.now },
-  hidden: Boolean
-})
+  hidden: Boolean,
+  category: { type: String, ref: 'Category' }
+});
 
 module.exports = mongoose.model('Post', postSchema);
